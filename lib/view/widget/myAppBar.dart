@@ -4,7 +4,19 @@ PreferredSizeWidget myAppBar(controller) {
   return AppBar(
     title: Padding(
       padding: const EdgeInsets.only(left: 80.0),
-      child: Text('focus zone'),
+      child: Text(
+        style: TextStyle(
+          decorationColor: Colors.white,
+          shadows: List.filled(
+            1,
+            BoxShadow(color: Colors.black, offset: Offset(1, 1)),
+          ),
+          fontWeight: FontWeight.bold,
+          color: Colors.white,
+          fontSize: 30,
+        ),
+        'focus zone',
+      ),
     ),
     backgroundColor: Colors.black26,
     elevation: 0,

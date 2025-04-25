@@ -21,7 +21,7 @@ class MyHomePage extends StatelessWidget {
             image: AssetImage(ImageList[controller.ImageIndex.value]),
             fit: BoxFit.cover,
           ),
-          color: Colors.transparent,
+          // color: Colors.transparent,
         ),
 
         duration: Duration(milliseconds: controller.delay),
@@ -30,29 +30,27 @@ class MyHomePage extends StatelessWidget {
           backgroundColor: Colors.transparent,
           appBar: myAppBar(controller),
 
-          body: Expanded(
-            child: Container(
-              color: Colors.transparent,
-              child: Center(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Button_Row(),
+          body: Container(
+            color: Colors.transparent,
+            child: Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  const Button_Row(),
 
-                    GetTime(controller: controller),
+                  GetTime(controller: controller),
 
-                    TimeName(),
-                  ],
-                ),
+                  const TimeName(),
+                ],
               ),
-            ).asGlass(
-              // tintColor: Colors.white10,
-              frosted: false,
-              enabled: true,
-              blurY: 2,
-              blurX: 2,
-              tileMode: TileMode.clamp,
             ),
+          ).asGlass(
+            tintColor: Colors.black,
+            frosted: false,
+            enabled: true,
+            blurY: 2.5,
+            blurX: 2.5,
+            tileMode: TileMode.clamp,
           ),
         ),
       ),
@@ -84,7 +82,7 @@ class TimeName extends StatelessWidget {
     return Row(
       spacing: 120,
       mainAxisAlignment: MainAxisAlignment.center,
-      children: [
+      children: <Text>[
         Text("Hours", style: Theme.of(context).textTheme.bodyMedium),
         Text("Minutes", style: Theme.of(context).textTheme.bodyMedium),
         Text("Seconds", style: Theme.of(context).textTheme.bodyMedium),
@@ -101,7 +99,7 @@ class Button_Row extends StatelessWidget {
     return Row(
       spacing: 80,
       mainAxisAlignment: MainAxisAlignment.center,
-      children: [
+      children: <Widget>[
         SizedBox(width: 1),
         myButton(onPressed: () {}, title: "Task", color: Colors.blueGrey),
         myButton(

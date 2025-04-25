@@ -6,31 +6,29 @@ import 'package:my_clock/app/ImageList.dart';
 class Imagecontroller extends GetxController {
   bool _isNextImageLocked = false;
 
-  int delay = 1500;
+  int delay = 2000;
 
   RxInt ImageIndex = 0.obs;
 
   //*this is image changer
   void changeImage() async {
     if (_isNextImageLocked) return;
-
     _isNextImageLocked = true;
-
     ImageIndex.value = (ImageIndex.value + 1) % ImageList.length;
-
     await Future.delayed(Duration(milliseconds: delay));
     _isNextImageLocked = false;
   }
 
   //----------------------------------------------------------------
-  //*this is the clock
+
+  //* this is the clock
   RxString currentTime = ''.obs;
   late Timer _timer;
 
   @override
   void onInit() {
     super.onInit();
-    _updateTime(); // مبدئيًا
+    _updateTime();
     _timer = Timer.periodic(Duration(seconds: 1), (timer) {
       _updateTime();
     });
