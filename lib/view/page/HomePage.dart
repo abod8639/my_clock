@@ -28,6 +28,7 @@ class MyHomePage extends StatelessWidget {
 
         child: Scaffold(
           backgroundColor: Colors.transparent,
+
           appBar: myAppBar(controller),
 
           body: Container(
@@ -101,13 +102,13 @@ class Button_Row extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
         SizedBox(width: 1),
-        myButton(onPressed: () {}, title: "Task", color: Colors.blueGrey),
-        myButton(
+        MyButton(onPressed: () {}, title: "Task", color: Colors.blueGrey),
+        MyButton(
           onPressed: () {},
           title: "Short Brake",
           color: Colors.blueAccent,
         ),
-        myButton(
+        MyButton(
           onPressed: () {},
           title: "Long Break",
           color: Colors.redAccent,

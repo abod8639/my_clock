@@ -4,6 +4,8 @@ import 'package:get/get.dart';
 import 'package:my_clock/app/ImageList.dart';
 
 class Imagecontroller extends GetxController {
+  //---------------------------------------------------------------
+
   bool _isNextImageLocked = false;
 
   int delay = 2000;
@@ -48,4 +50,6 @@ class Imagecontroller extends GetxController {
     _timer.cancel();
     super.onClose();
   }
+
+  //----------------------------------------------------------------
 }

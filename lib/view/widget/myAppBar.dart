@@ -10,6 +10,7 @@ PreferredSizeWidget myAppBar(controller) {
           shadows: List.filled(
             1,
             BoxShadow(color: Colors.black, offset: Offset(1, 1)),
+            growable: true,
           ),
           fontWeight: FontWeight.bold,
           color: Colors.white,
