@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:get/get.dart';
 import 'package:my_clock/app/ImageList.dart';
 
-class imagecontroller extends GetxController {
+class Imagecontroller extends GetxController {
   bool _isNextImageLocked = false;
 
   int delay = 1500;

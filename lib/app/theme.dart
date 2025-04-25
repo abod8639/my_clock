@@ -7,6 +7,30 @@ ThemeData darktheme = ThemeData(
   appBarTheme: AppBarTheme(
     backgroundColor: Colors.black,
     iconTheme: IconThemeData(color: Colors.white),
-    titleTextStyle: TextStyle(color: Colors.white, fontSize: 20),
+  ),
+
+  //! TextTheme
+  textTheme: TextTheme(
+    //* text titleMedium
+    bodyMedium: TextStyle(
+      shadows: List.filled(
+        1,
+        BoxShadow(color: Colors.black, offset: Offset(1, 1)),
+      ),
+      fontWeight: FontWeight.bold,
+      color: Colors.white,
+      fontSize: 20,
+    ),
+
+    //*text bodyLarge
+    bodyLarge: TextStyle(
+      shadows: List.filled(
+        1,
+        BoxShadow(color: Colors.black, offset: Offset(1, 1)),
+      ),
+      fontWeight: FontWeight.bold,
+      color: Colors.white,
+      fontSize: 90,
+    ),
   ),
 );

@@ -11,6 +11,8 @@ PreferredSizeWidget myAppBar(controller) {
 
     actions: [
       MaterialButton(
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+
         elevation: 3,
         color: Colors.white10,
         onPressed: controller.changeImage,
