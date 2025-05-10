@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:my_clock/controller/controller.Getx.dart';
 
 class MyButton extends StatefulWidget {
   final void Function() onPressed;
@@ -17,6 +19,8 @@ class MyButton extends StatefulWidget {
 }
 
 class _MyButtonState extends State<MyButton> {
+  final Imagecontroller controller = Get.find<Imagecontroller>();
+
   bool isHovered = false;
 
   @override
@@ -26,7 +30,7 @@ class _MyButtonState extends State<MyButton> {
       onExit: (_) => setState(() => isHovered = false),
       child: AnimatedScale(
         duration: const Duration(milliseconds: 200),
-        scale: isHovered ? 1.3 : 1.0,
+        scale: isHovered ? 1.2 : 1.0,
         child: MaterialButton(
           hoverColor: Colors.transparent,
           highlightColor: Colors.transparent,
@@ -39,11 +43,19 @@ class _MyButtonState extends State<MyButton> {
           color: widget.color.withOpacity(0.8),
           onPressed: widget.onPressed,
           child: SizedBox(
-            width: 100,
+            width: MediaQuery.of(context).size.width * 0.15,
+            //     (controller.isDesktop(context) ? 0.2 : 0.4),
+            // controller.isDesktop(context) ? 200 : 100,
             child: Center(
               child: Text(
                 widget.title,
-                style: const TextStyle(color: Colors.white),
+                style: TextStyle(
+                  fontSize: MediaQuery.of(context).size.width * 0.02,
+                ),
+
+                // controller.isDesktop(context)
+                //     ? Theme.of(context).textTheme.bodyMedium
+                //     : Theme.of(context).textTheme.bodySmall,
               ),
             ),
           ),

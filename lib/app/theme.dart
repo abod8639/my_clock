@@ -12,6 +12,16 @@ ThemeData darktheme = ThemeData(
   //! TextTheme
   textTheme: TextTheme(
     //* text titleMedium
+    bodySmall: TextStyle(
+      shadows: List.filled(
+        1,
+        BoxShadow(color: Colors.black, offset: Offset(1, 1)),
+      ),
+      fontWeight: FontWeight.bold,
+      color: Colors.white,
+      fontSize: 20,
+    ),
+    //* text titleMedium
     bodyMedium: TextStyle(
       shadows: List.filled(
         1,

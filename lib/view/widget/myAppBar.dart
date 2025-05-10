@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:my_clock/view/page/SettingPage.dart';
 
 PreferredSizeWidget myAppBar(controller) {
   return AppBar(
@@ -42,7 +44,12 @@ PreferredSizeWidget myAppBar(controller) {
         ),
       ),
       SizedBox(width: 30),
-      IconButton(onPressed: () {}, icon: Icon(Icons.settings)),
+      IconButton(
+        onPressed: () {
+          Get.to(() => SettingsPage());
+        },
+        icon: Icon(Icons.settings),
+      ),
       SizedBox(width: 30),
     ],
   );

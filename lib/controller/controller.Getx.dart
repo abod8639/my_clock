@@ -1,9 +1,20 @@
 import 'dart:async';
 
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:my_clock/app/ImageList.dart';
 
 class Imagecontroller extends GetxController {
+  // is disktop or phone
+
+  bool isDesktop(BuildContext context) =>
+      MediaQuery.of(context).size.width >= 600.0;
+  bool isTablet(BuildContext context) =>
+      MediaQuery.of(context).size.width >= 600.0 &&
+      MediaQuery.of(context).size.width < 1000.0;
+  bool isPhone(BuildContext context) =>
+      MediaQuery.of(context).size.width < 600.0;
+
   //---------------------------------------------------------------
 
   bool _isNextImageLocked = false;
@@ -52,4 +63,58 @@ class Imagecontroller extends GetxController {
   }
 
   //----------------------------------------------------------------
+}
+
+class TimerController extends GetxController {
+  final RxInt totalSeconds = 300.obs;
+  final RxInt remainingSeconds = 300.obs;
+  final RxBool isRunning = false.obs;
+  Timer? _timer;
+
+  void startTimer() {
+    _timer?.cancel();
+    _timer = Timer.periodic(const Duration(seconds: 1), (timer) {
+      if (remainingSeconds.value > 0) {
+        remainingSeconds.value--;
+      } else {
+        stopTimer();
+      }
+    });
+    isRunning.value = true;
+  }
+
+  void stopTimer() {
+    _timer?.cancel();
+    isRunning.value = false;
+  }
+
+  void toggleTimer() {
+    if (isRunning.value) {
+      stopTimer();
+    } else {
+      if (remainingSeconds.value > 0) {
+        startTimer();
+      }
+    }
+  }
+
+  void updateTimer(int minutes) {
+    if (minutes > 0) {
+      totalSeconds.value = minutes * 60;
+      remainingSeconds.value = totalSeconds.value;
+      isRunning.value = false;
+    }
+  }
+
+  String formatTime(int seconds) {
+    int m = seconds ~/ 60;
+    int s = seconds % 60;
+    return '${m.toString().padLeft(2, '0')}:${s.toString().padLeft(2, '0')}';
+  }
+
+  @override
+  void onClose() {
+    _timer?.cancel();
+    super.onClose();
+  }
 }
